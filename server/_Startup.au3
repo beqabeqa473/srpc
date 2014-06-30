@@ -158,7 +158,7 @@ Func __StartupFolder_Location($fAllUsers)
 EndFunc   ;==>__StartupFolder_Location
 
 Func __StartupFolder_Uninstall($fIsInstall, $sName, $sFilePath, $sCommandline, $fAllUsers)
-	If __Startup_Format($sName, $sFilePath) Then
+	If Not __Startup_Format($sName, $sFilePath) Then
 		Return SetError(1, 0, False) ; $STARTUP_ERROR_EXISTS
 	EndIf
 	If $sCommandline = Default Then
@@ -217,7 +217,7 @@ Func __StartupRegistry_Location($fAllUsers, $iRunOnce)
 EndFunc   ;==>__StartupRegistry_Location
 
 Func __StartupRegistry_Uninstall($fIsInstall, $sName, $sFilePath, $sCommandline, $fAllUsers, $iRunOnce)
-	If __Startup_Format($sName, $sFilePath) Then
+	If Not __Startup_Format($sName, $sFilePath) Then
 		Return SetError(1, 0, False) ; $STARTUP_ERROR_EXISTS
 	EndIf
 
